@@ -55,11 +55,9 @@
 		FD2C62DD2BDFD75400A14E53 /* CalendarStudy */ = {
 			isa = PBXGroup;
 			children = (
-				FD2C62DE2BDFD75400A14E53 /* CalendarStudyApp.swift */,
+				FD2C62F22BDFD98C00A14E53 /* App */,
+				FD2C62F12BDFD96500A14E53 /* Model */,
 				FD2C62E02BDFD75400A14E53 /* ContentView.swift */,
-				FD2C62E22BDFD75500A14E53 /* Assets.xcassets */,
-				FD2C62E72BDFD75500A14E53 /* Persistence.swift */,
-				FD2C62E92BDFD75500A14E53 /* CalendarStudy.xcdatamodeld */,
 				FD2C62E42BDFD75500A14E53 /* Preview Content */,
 			);
 			path = CalendarStudy;
@@ -71,6 +69,24 @@
 				FD2C62E52BDFD75500A14E53 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FD2C62F12BDFD96500A14E53 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD2C62E92BDFD75500A14E53 /* CalendarStudy.xcdatamodeld */,
+				FD2C62E72BDFD75500A14E53 /* Persistence.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD2C62F22BDFD98C00A14E53 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FD2C62E22BDFD75500A14E53 /* Assets.xcassets */,
+				FD2C62DE2BDFD75400A14E53 /* CalendarStudyApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
