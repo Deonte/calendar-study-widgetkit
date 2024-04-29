@@ -15,7 +15,38 @@
 		FD2C62EB2BDFD75500A14E53 /* CalendarStudy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD2C62E92BDFD75500A14E53 /* CalendarStudy.xcdatamodeld */; };
 		FD2C62F52BDFE57800A14E53 /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2C62F42BDFE57800A14E53 /* Date+ext.swift */; };
 		FD93E58C2BDFF686003DAC56 /* StreakView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E58B2BDFF686003DAC56 /* StreakView.swift */; };
+		FD93E5942BDFFB53003DAC56 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD93E5932BDFFB53003DAC56 /* WidgetKit.framework */; };
+		FD93E5962BDFFB53003DAC56 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD93E5952BDFFB53003DAC56 /* SwiftUI.framework */; };
+		FD93E5992BDFFB53003DAC56 /* CalendarStudyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E5982BDFFB53003DAC56 /* CalendarStudyWidgetBundle.swift */; };
+		FD93E59B2BDFFB53003DAC56 /* CalendarStudyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E59A2BDFFB53003DAC56 /* CalendarStudyWidget.swift */; };
+		FD93E59D2BDFFB53003DAC56 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E59C2BDFFB53003DAC56 /* AppIntent.swift */; };
+		FD93E59F2BDFFB54003DAC56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD93E59E2BDFFB54003DAC56 /* Assets.xcassets */; };
+		FD93E5A32BDFFB54003DAC56 /* CalendarStudyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD93E5912BDFFB53003DAC56 /* CalendarStudyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD93E5A12BDFFB54003DAC56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD2C62D32BDFD75400A14E53 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD93E5902BDFFB53003DAC56;
+			remoteInfo = CalendarStudyWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FD93E5A72BDFFB54003DAC56 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FD93E5A32BDFFB54003DAC56 /* CalendarStudyWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FD2C62DB2BDFD75400A14E53 /* CalendarStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalendarStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -27,6 +58,16 @@
 		FD2C62EA2BDFD75500A14E53 /* CalendarStudy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalendarStudy.xcdatamodel; sourceTree = "<group>"; };
 		FD2C62F42BDFE57800A14E53 /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
 		FD93E58B2BDFF686003DAC56 /* StreakView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakView.swift; sourceTree = "<group>"; };
+		FD93E5912BDFFB53003DAC56 /* CalendarStudyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalendarStudyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD93E5932BDFFB53003DAC56 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		FD93E5952BDFFB53003DAC56 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		FD93E5982BDFFB53003DAC56 /* CalendarStudyWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStudyWidgetBundle.swift; sourceTree = "<group>"; };
+		FD93E59A2BDFFB53003DAC56 /* CalendarStudyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarStudyWidget.swift; sourceTree = "<group>"; };
+		FD93E59C2BDFFB53003DAC56 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		FD93E59E2BDFFB54003DAC56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FD93E5A02BDFFB54003DAC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD93E5A82BDFFB7F003DAC56 /* CalendarStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarStudy.entitlements; sourceTree = "<group>"; };
+		FD93E5A92BDFFBCA003DAC56 /* CalendarStudyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarStudyWidgetExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,13 +78,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD93E58E2BDFFB53003DAC56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD93E5962BDFFB53003DAC56 /* SwiftUI.framework in Frameworks */,
+				FD93E5942BDFFB53003DAC56 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		FD2C62D22BDFD75400A14E53 = {
 			isa = PBXGroup;
 			children = (
+				FD93E5A92BDFFBCA003DAC56 /* CalendarStudyWidgetExtension.entitlements */,
 				FD2C62DD2BDFD75400A14E53 /* CalendarStudy */,
+				FD93E5972BDFFB53003DAC56 /* CalendarStudyWidget */,
+				FD93E5922BDFFB53003DAC56 /* Frameworks */,
 				FD2C62DC2BDFD75400A14E53 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				FD2C62DB2BDFD75400A14E53 /* CalendarStudy.app */,
+				FD93E5912BDFFB53003DAC56 /* CalendarStudyWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -59,6 +113,7 @@
 		FD2C62DD2BDFD75400A14E53 /* CalendarStudy */ = {
 			isa = PBXGroup;
 			children = (
+				FD93E5A82BDFFB7F003DAC56 /* CalendarStudy.entitlements */,
 				FD2C62F22BDFD98C00A14E53 /* App */,
 				FD2C62F32BDFE56000A14E53 /* Utils */,
 				FD2C62F12BDFD96500A14E53 /* Model */,
@@ -103,6 +158,27 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		FD93E5922BDFFB53003DAC56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD93E5932BDFFB53003DAC56 /* WidgetKit.framework */,
+				FD93E5952BDFFB53003DAC56 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD93E5972BDFFB53003DAC56 /* CalendarStudyWidget */ = {
+			isa = PBXGroup;
+			children = (
+				FD93E5982BDFFB53003DAC56 /* CalendarStudyWidgetBundle.swift */,
+				FD93E59A2BDFFB53003DAC56 /* CalendarStudyWidget.swift */,
+				FD93E59C2BDFFB53003DAC56 /* AppIntent.swift */,
+				FD93E59E2BDFFB54003DAC56 /* Assets.xcassets */,
+				FD93E5A02BDFFB54003DAC56 /* Info.plist */,
+			);
+			path = CalendarStudyWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -113,15 +189,34 @@
 				FD2C62D72BDFD75400A14E53 /* Sources */,
 				FD2C62D82BDFD75400A14E53 /* Frameworks */,
 				FD2C62D92BDFD75400A14E53 /* Resources */,
+				FD93E5A72BDFFB54003DAC56 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FD93E5A22BDFFB54003DAC56 /* PBXTargetDependency */,
 			);
 			name = CalendarStudy;
 			productName = CalendarStudy;
 			productReference = FD2C62DB2BDFD75400A14E53 /* CalendarStudy.app */;
 			productType = "com.apple.product-type.application";
+		};
+		FD93E5902BDFFB53003DAC56 /* CalendarStudyWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD93E5A42BDFFB54003DAC56 /* Build configuration list for PBXNativeTarget "CalendarStudyWidgetExtension" */;
+			buildPhases = (
+				FD93E58D2BDFFB53003DAC56 /* Sources */,
+				FD93E58E2BDFFB53003DAC56 /* Frameworks */,
+				FD93E58F2BDFFB53003DAC56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalendarStudyWidgetExtension;
+			productName = CalendarStudyWidgetExtension;
+			productReference = FD93E5912BDFFB53003DAC56 /* CalendarStudyWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -134,6 +229,9 @@
 				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					FD2C62DA2BDFD75400A14E53 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					FD93E5902BDFFB53003DAC56 = {
 						CreatedOnToolsVersion = 15.3;
 					};
 				};
@@ -152,6 +250,7 @@
 			projectRoot = "";
 			targets = (
 				FD2C62DA2BDFD75400A14E53 /* CalendarStudy */,
+				FD93E5902BDFFB53003DAC56 /* CalendarStudyWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -163,6 +262,14 @@
 			files = (
 				FD2C62E62BDFD75500A14E53 /* Preview Assets.xcassets in Resources */,
 				FD2C62E32BDFD75500A14E53 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD93E58F2BDFFB53003DAC56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD93E59F2BDFFB54003DAC56 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,7 +289,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FD93E58D2BDFFB53003DAC56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD93E5992BDFFB53003DAC56 /* CalendarStudyWidgetBundle.swift in Sources */,
+				FD93E59B2BDFFB53003DAC56 /* CalendarStudyWidget.swift in Sources */,
+				FD93E59D2BDFFB53003DAC56 /* AppIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD93E5A22BDFFB54003DAC56 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD93E5902BDFFB53003DAC56 /* CalendarStudyWidgetExtension */;
+			targetProxy = FD93E5A12BDFFB54003DAC56 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FD2C62EC2BDFD75500A14E53 /* Debug */ = {
@@ -307,8 +432,10 @@
 		FD2C62EF2BDFD75500A14E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CalendarStudy/CalendarStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CalendarStudy/Preview Content\"";
@@ -336,8 +463,10 @@
 		FD2C62F02BDFD75500A14E53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CalendarStudy/CalendarStudy.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CalendarStudy/Preview Content\"";
@@ -362,6 +491,62 @@
 			};
 			name = Release;
 		};
+		FD93E5A52BDFFB54003DAC56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CalendarStudyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PZ67V2GHY9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalendarStudyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CalendarStudyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.compilery.CalendarStudy.CalendarStudyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FD93E5A62BDFFB54003DAC56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = CalendarStudyWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PZ67V2GHY9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalendarStudyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CalendarStudyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.compilery.CalendarStudy.CalendarStudyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -379,6 +564,15 @@
 			buildConfigurations = (
 				FD2C62EF2BDFD75500A14E53 /* Debug */,
 				FD2C62F02BDFD75500A14E53 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD93E5A42BDFFB54003DAC56 /* Build configuration list for PBXNativeTarget "CalendarStudyWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD93E5A52BDFFB54003DAC56 /* Debug */,
+				FD93E5A62BDFFB54003DAC56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
