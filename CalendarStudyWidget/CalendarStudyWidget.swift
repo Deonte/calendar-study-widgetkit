@@ -39,15 +39,39 @@ struct SimpleEntry: TimelineEntry {
 
 struct CalendarStudyWidgetEntryView : View {
     var entry: Provider.Entry
-
+    let columns = Array(repeating: GridItem(.flexible()), count: 7)
     var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
-
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
+        HStack {
+            VStack {
+                Text("31")
+                    .font(.system(size: 70, design: .rounded))
+                    .bold()
+                    .foregroundStyle(Color.green)
+                Text("Day Streak")
+                    .font(.caption)
+                    .foregroundStyle(Color.secondary)
+            }
+            
+            VStack {
+                CalendarHeaderView(font: .caption)
+                
+                LazyVGrid(columns: columns, spacing: 7) {
+                    ForEach(0..<31) { _ in
+                       Text("31")
+                            .font(.caption2)
+                            .bold()
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.secondary)
+                            .background(
+                                Circle()
+                                    .foregroundStyle(.green.opacity(0.3))
+                                    .scaleEffect(1.5)
+                            )
+                    }
+                }
+            }
+            .padding(.leading, 6)
+        }.padding()
     }
 }
 
@@ -59,6 +83,7 @@ struct CalendarStudyWidget: Widget {
             CalendarStudyWidgetEntryView(entry: entry)
                 .containerBackground(.fill.tertiary, for: .widget)
         }
+        .supportedFamilies([.systemMedium])
     }
 }
 

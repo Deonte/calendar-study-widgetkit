@@ -22,6 +22,8 @@
 		FD93E59D2BDFFB53003DAC56 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E59C2BDFFB53003DAC56 /* AppIntent.swift */; };
 		FD93E59F2BDFFB54003DAC56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD93E59E2BDFFB54003DAC56 /* Assets.xcassets */; };
 		FD93E5A32BDFFB54003DAC56 /* CalendarStudyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = FD93E5912BDFFB53003DAC56 /* CalendarStudyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		FD93E5AB2BE00587003DAC56 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E5AA2BE00587003DAC56 /* CalendarHeaderView.swift */; };
+		FD93E5AC2BE00587003DAC56 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD93E5AA2BE00587003DAC56 /* CalendarHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,7 @@
 		FD93E5A02BDFFB54003DAC56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FD93E5A82BDFFB7F003DAC56 /* CalendarStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarStudy.entitlements; sourceTree = "<group>"; };
 		FD93E5A92BDFFBCA003DAC56 /* CalendarStudyWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalendarStudyWidgetExtension.entitlements; sourceTree = "<group>"; };
+		FD93E5AA2BE00587003DAC56 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,7 @@
 				FD2C62F32BDFE56000A14E53 /* Utils */,
 				FD2C62F12BDFD96500A14E53 /* Model */,
 				FD2C62E02BDFD75400A14E53 /* CalendarView.swift */,
+				FD93E5AA2BE00587003DAC56 /* CalendarHeaderView.swift */,
 				FD93E58B2BDFF686003DAC56 /* StreakView.swift */,
 				FD2C62E42BDFD75500A14E53 /* Preview Content */,
 			);
@@ -282,6 +286,7 @@
 			files = (
 				FD93E58C2BDFF686003DAC56 /* StreakView.swift in Sources */,
 				FD2C62E82BDFD75500A14E53 /* Persistence.swift in Sources */,
+				FD93E5AB2BE00587003DAC56 /* CalendarHeaderView.swift in Sources */,
 				FD2C62EB2BDFD75500A14E53 /* CalendarStudy.xcdatamodeld in Sources */,
 				FD2C62E12BDFD75400A14E53 /* CalendarView.swift in Sources */,
 				FD2C62DF2BDFD75400A14E53 /* CalendarStudyApp.swift in Sources */,
@@ -294,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD93E5992BDFFB53003DAC56 /* CalendarStudyWidgetBundle.swift in Sources */,
+				FD93E5AC2BE00587003DAC56 /* CalendarHeaderView.swift in Sources */,
 				FD93E59B2BDFFB53003DAC56 /* CalendarStudyWidget.swift in Sources */,
 				FD93E59D2BDFFB53003DAC56 /* AppIntent.swift in Sources */,
 			);
