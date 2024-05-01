@@ -7,103 +7,140 @@
 
 import WidgetKit
 import SwiftUI
+import SwiftData
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
+struct Provider: TimelineProvider {
+
+    func placeholder(in context: Context) -> CalendarEntry {
+        CalendarEntry(date: Date(), days: [])
     }
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
+    @MainActor func getSnapshot(in context: Context, completion: @escaping (CalendarEntry) -> ()) {
+        let entry = CalendarEntry(date: Date(), days: fetchDays())
+        completion(entry)
     }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
 
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
+    @MainActor func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+        let entry = CalendarEntry(date: Date(), days: fetchDays())
+        let timeline = Timeline(entries: [entry], policy: .after(.now.endOfDay))
+        completion(timeline)
+    }
+
+    @MainActor func fetchDays() -> [Day] {
+        var sharedStoreURL: URL {
+            let container = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: "group.io.compilery.CalendarStudy")!
+            return container.appendingPathComponent("CalendarStudy.sqlite")
         }
 
-        return Timeline(entries: entries, policy: .atEnd)
+        let container: ModelContainer = {
+            let config = ModelConfiguration(url: sharedStoreURL)
+            return try! ModelContainer(for: Day.self, configurations: config)
+        }()
+
+        let startDate = Date().startOfCalanderWithPrefixDays
+        let endDate = Date().endOfMonth
+        
+        let predicate = #Predicate<Day> { $0.date > startDate && $0.date < endDate }
+        let desciptor = FetchDescriptor<Day>(predicate: predicate, sortBy: [.init(\.date)])
+
+        return try! container.mainContext.fetch(desciptor)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct CalendarEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationAppIntent
+    let days: [Day]
 }
 
-struct CalendarStudyWidgetEntryView : View {
-    var entry: Provider.Entry
+struct SwiftCalWidgetEntryView : View {
+    var entry: CalendarEntry
     let columns = Array(repeating: GridItem(.flexible()), count: 7)
+
     var body: some View {
         HStack {
-            VStack {
-                Text("31")
-                    .font(.system(size: 70, design: .rounded))
-                    .bold()
-                    .foregroundStyle(Color.green)
-                Text("Day Streak")
-                    .font(.caption)
-                    .foregroundStyle(Color.secondary)
+            Link(destination: URL(string: "streak")!) {
+                VStack {
+                    Text("\(calculateStreakValue())")
+                        .font(.system(size: 70, design: .rounded))
+                        .bold()
+                        .foregroundColor(.green)
+
+                    Text("day streak")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
             }
-            
-            VStack {
-                CalendarHeaderView(font: .caption)
-                
-                LazyVGrid(columns: columns, spacing: 7) {
-                    ForEach(0..<31) { _ in
-                       Text("31")
-                            .font(.caption2)
-                            .bold()
-                            .frame(maxWidth: .infinity)
-                            .foregroundColor(.secondary)
-                            .background(
-                                Circle()
-                                    .foregroundStyle(.green.opacity(0.3))
-                                    .scaleEffect(1.5)
-                            )
+
+            Link(destination: URL(string: "calendar")!) {
+                VStack {
+                    CalendarHeaderView(font: .caption)
+
+                    LazyVGrid(columns: columns, spacing: 7) {
+                        ForEach(entry.days) { day in
+                            if day.date.monthInt != Date().monthInt {
+                                Text(" ")
+                            } else {
+                                Text(day.date.formatted(.dateTime.day()))
+                                    .font(.caption2)
+                                    .bold()
+                                    .frame(maxWidth: .infinity)
+                                    .foregroundColor(day.didStudy ? .green : .secondary)
+                                    .background(
+                                        Circle()
+                                            .foregroundColor(.green.opacity(day.didStudy ? 0.3 : 0.0))
+                                            .scaleEffect(1.5)
+                                    )
+                            }
+                        }
                     }
                 }
             }
             .padding(.leading, 6)
-        }.padding()
+        }
+        .containerBackground(for: .widget) {
+            Color.white
+        }
+    }
+
+    func calculateStreakValue() -> Int {
+        guard !entry.days.isEmpty else { return 0 }
+
+        let nonFutureDays = entry.days.filter { $0.date.dayInt <= Date().dayInt }
+
+        var streakCount = 0
+
+        for day in nonFutureDays.reversed() {
+            if day.didStudy {
+                streakCount += 1
+            } else {
+                if day.date.dayInt != Date().dayInt {
+                    break
+                }
+            }
+        }
+
+        return streakCount
     }
 }
 
-struct CalendarStudyWidget: Widget {
-    let kind: String = "CalendarStudyWidget"
+@main
+struct SwiftCalWidget: Widget {
+    let kind: String = "SwiftCalWidget"
 
     var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            CalendarStudyWidgetEntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+            SwiftCalWidgetEntryView(entry: entry)
         }
+        .configurationDisplayName("Study Calendar")
+        .description("Track days you study with streaks.")
         .supportedFamilies([.systemMedium])
     }
 }
 
-extension ConfigurationAppIntent {
-    fileprivate static var smiley: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "😀"
-        return intent
-    }
-    
-    fileprivate static var starEyes: ConfigurationAppIntent {
-        let intent = ConfigurationAppIntent()
-        intent.favoriteEmoji = "🤩"
-        return intent
-    }
-}
+struct SwiftCalWidget_Previews: PreviewProvider {
 
-#Preview(as: .systemSmall) {
-    CalendarStudyWidget()
-} timeline: {
-    SimpleEntry(date: .now, configuration: .smiley)
-    SimpleEntry(date: .now, configuration: .starEyes)
+    static var previews: some View {
+        SwiftCalWidgetEntryView(entry: CalendarEntry(date: Date(), days: []))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+    }
 }
